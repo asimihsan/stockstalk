@@ -1,0 +1,2 @@
+# stockstalk
+Stock trading automater
