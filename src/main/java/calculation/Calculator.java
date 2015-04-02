@@ -13,6 +13,7 @@ public class Calculator {
 
     private SimpleMovingAverage simpleMovingAverage;
     private MoneyFlowIndex moneyFlowIndex;
+    private ExponentialMovingAverage exponentialMovingAverage;
 
     @Inject
     public void setSimpleMovingAverage(final SimpleMovingAverage simpleMovingAverage) {
@@ -38,6 +39,19 @@ public class Calculator {
 
     public double[] moneyFlowIndex(final double[] high, final double[] low, final double[] close, final double[] volume, final int period) {
         return moneyFlowIndex.calculate(high, low, close, volume, period);
+    }
+
+    @Inject
+    public void setExponentialMovingAverage(final ExponentialMovingAverage exponentialMovingAverage) {
+        this.exponentialMovingAverage = exponentialMovingAverage;
+    }
+
+    public double[] exponentialMovingAverage(final Timeseries data, final int period) {
+        return exponentialMovingAverage.calculate(data.getClose(), period);
+    }
+
+    public double[] exponentialMovingAverage(final double[] close, final int period) {
+        return exponentialMovingAverage.calculate(close, period);
     }
 
 }

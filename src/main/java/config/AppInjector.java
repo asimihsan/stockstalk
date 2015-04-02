@@ -1,9 +1,6 @@
 package config;
 
-import calculation.MoneyFlowIndex;
-import calculation.MoneyFlowIndexImpl;
-import calculation.SimpleMovingAverage;
-import calculation.SimpleMovingAverageImpl;
+import calculation.*;
 import com.google.inject.AbstractModule;
 
 /**
@@ -14,5 +11,6 @@ public class AppInjector extends AbstractModule {
     protected void configure() {
         bind(SimpleMovingAverage.class).to(SimpleMovingAverageImpl.class);
         bind(MoneyFlowIndex.class).to(MoneyFlowIndexImpl.class);
+        bind(ExponentialMovingAverage.class).to(ExponentialMovingAverageImpl.class);
     }
 }

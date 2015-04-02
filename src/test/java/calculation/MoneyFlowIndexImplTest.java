@@ -25,7 +25,7 @@ public class MoneyFlowIndexImplTest {
     }
 
     @Test
-    public void testCalculate_Period1() {
+    public void testCalculate_Period14() {
         assertArrayEquals(
             new double[]{30.84, 21.53, 22.18, 22.38, 24.07, 26.51, 23.76, 31.83, 42.80, 41.30, 33.87, 31.53, 28.41, 36.27, 45.11, 49.47, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN},
             moneyFlowIndex.calculate(high, low, close, volume, 14),

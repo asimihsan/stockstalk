@@ -25,5 +25,4 @@ public class SimpleMovingAverageImpl implements SimpleMovingAverage {
         return output;
     }
 
-
 }

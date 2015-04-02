@@ -31,7 +31,7 @@ public class Main {
         Timeseries tsd = new Timeseries(data);
 
         Calculator calculator = injector.getInstance(Calculator.class);
-        final double[] mfi = calculator.moneyFlowIndex(tsd, 14);
-        log.info(Arrays.toString(mfi));
+        final double[] ema = calculator.exponentialMovingAverage(tsd, 50);
+        log.info(Arrays.toString(ema));
     }
 }
