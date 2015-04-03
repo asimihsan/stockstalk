@@ -25,7 +25,7 @@ public class Main {
         Injector injector = Guice.createInjector(new AppInjector());
 
         final String ticker = "^GSPC";
-        final DateTime end = DateTime.now();
+        final DateTime end = DateTime.now().minusDays(1);
         final DateTime start = end.minusYears(1);
         HistoricalData data = new HistoricalData(DataSource.YAHOO_FINANCE, ticker, start, end);
         Timeseries tsd = new Timeseries(data);

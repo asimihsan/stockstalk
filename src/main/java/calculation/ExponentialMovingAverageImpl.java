@@ -7,28 +7,23 @@ import com.google.inject.Inject;
  */
 public class ExponentialMovingAverageImpl implements ExponentialMovingAverage {
 
-    private SimpleMovingAverage simpleMovingAverage;
-
-    @Inject
-    public void setSimpleMovingAverage(final SimpleMovingAverage simpleMovingAverage) {
-        this.simpleMovingAverage = simpleMovingAverage;
-    }
-
     @Override
-    public double[] calculate(double[] close, int period) {
-        return simpleMovingAverage.calculate(close, period);
-        /*
+    public double[] calculate(final double[] close, final int period) {
         final double[] output = new double[close.length];
+
+        double startingValue = 0;
         for (int i = output.length - 1; i > output.length - period; i--) {
             output[i] = Double.NaN;
+            startingValue += close[i] / period;
         }
-        for (int i = output.length - period; i >= 0; i--) {
-            final int start = i, end = start + period - 1;
-            for (int j = start; j <= end; j++) {
-                output[i] += close[j] / period;
-            }
+        startingValue += close[output.length - period] / period;
+        output[output.length - period] = startingValue;
+
+        final double firstEmaConstant = 2.0d / (period + 1.0d);
+        final double secondEmaConstant = 1 - firstEmaConstant;
+        for (int i = output.length - period - 1; i >= 0; i--) {
+            output[i] = close[i] * firstEmaConstant + output[i + 1] * secondEmaConstant;
         }
         return output;
-        */
     }
 }
