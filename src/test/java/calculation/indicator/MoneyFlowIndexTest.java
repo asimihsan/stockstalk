@@ -1,5 +1,6 @@
-package calculation;
+package calculation.indicator;
 
+import calculation.indicator.MoneyFlowIndex;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import config.AppInjector;

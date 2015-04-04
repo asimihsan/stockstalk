@@ -1,8 +1,7 @@
-package calculation;
+package calculation.indicator;
 
+import calculation.indicator.ExponentialMovingAverage;
 import com.google.inject.Inject;
-
-import java.util.Arrays;
 
 /**
  * Created by ai on 4/2/15.

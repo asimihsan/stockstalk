@@ -1,12 +1,11 @@
-package calculation;
+package calculation.indicator;
 
+import calculation.indicator.ExponentialMovingAverage;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import config.AppInjector;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -31,17 +30,17 @@ public class ExponentialMovingAverageTest {
     @Test
     public void testCalculate_Period12() {
         assertArrayEquals(
-            new double[]{44.03, 43.97, 43.98, 43.96, 43.90, 43.93, 43.91, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN},
-            exponentialMovingAverage.calculate(close, 12),
-            DELTA);
+                new double[]{44.03, 43.97, 43.98, 43.96, 43.90, 43.93, 43.91, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN},
+                exponentialMovingAverage.calculate(close, 12),
+                DELTA);
     }
 
     @Test
     public void testCalculate_Period2() {
         assertArrayEquals(
-            new double[]{9.5, 8.5, 7.5, Double.NaN},
-            exponentialMovingAverage.calculate(close2, 2),
-            DELTA);
+                new double[]{9.5, 8.5, 7.5, Double.NaN},
+                exponentialMovingAverage.calculate(close2, 2),
+                DELTA);
     }
 
     @Test

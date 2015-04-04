@@ -1,5 +1,9 @@
 package calculation;
 
+import calculation.indicator.ExponentialMovingAverage;
+import calculation.indicator.MoneyFlowIndex;
+import calculation.indicator.MovingAverageConvergenceDivergence;
+import calculation.indicator.SimpleMovingAverage;
 import com.google.inject.Inject;
 import data.Timeseries;
 import org.slf4j.Logger;

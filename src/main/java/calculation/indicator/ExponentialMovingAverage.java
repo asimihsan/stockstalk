@@ -1,4 +1,4 @@
-package calculation;
+package calculation.indicator;
 
 import calculation.util.CalculationUtil;
 import com.google.inject.Inject;

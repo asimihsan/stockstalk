@@ -1,12 +1,11 @@
-package calculation;
+package calculation.indicator;
 
+import calculation.indicator.MovingAverageConvergenceDivergence;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import config.AppInjector;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
