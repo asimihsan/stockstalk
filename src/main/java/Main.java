@@ -22,7 +22,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         log.info("main() entry.");
-        Injector injector = Guice.createInjector(new AppInjector());
+        final Injector injector = Guice.createInjector(new AppInjector());
 
         final String ticker = "^GSPC";
         final DateTime end = DateTime.now().minusDays(1);
@@ -31,7 +31,7 @@ public class Main {
         Timeseries tsd = new Timeseries(data);
 
         Calculator calculator = injector.getInstance(Calculator.class);
-        final double[] ema = calculator.exponentialMovingAverage(tsd, 50);
-        log.info(Arrays.toString(ema));
+        final double[] macd = calculator.movingAverageConvergenceDivergence(tsd, 12, 26, 9);
+        log.info(Arrays.toString(macd));
     }
 }

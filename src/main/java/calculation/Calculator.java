@@ -14,6 +14,7 @@ public class Calculator {
     private SimpleMovingAverage simpleMovingAverage;
     private MoneyFlowIndex moneyFlowIndex;
     private ExponentialMovingAverage exponentialMovingAverage;
+    private MovingAverageConvergenceDivergence movingAverageConvergenceDivergence;
 
     @Inject
     public void setSimpleMovingAverage(final SimpleMovingAverage simpleMovingAverage) {
@@ -52,6 +53,19 @@ public class Calculator {
 
     public double[] exponentialMovingAverage(final double[] close, final int period) {
         return exponentialMovingAverage.calculate(close, period);
+    }
+
+    @Inject
+    public void setMovingAverageConvergenceDivergence(final MovingAverageConvergenceDivergence movingAverageConvergenceDivergence) {
+        this.movingAverageConvergenceDivergence = movingAverageConvergenceDivergence;
+    }
+
+    public double[] movingAverageConvergenceDivergence(final Timeseries data, final int shortPeriod, final int longPeriod, final int signalPeriod) {
+        return movingAverageConvergenceDivergence.calculate(data.getClose(), shortPeriod, longPeriod, signalPeriod);
+    }
+
+    public double[] movingAverageConvergenceDivergence(final double[] close, final int shortPeriod, final int longPeriod, final int signalPeriod) {
+        return movingAverageConvergenceDivergence.calculate(close, shortPeriod, longPeriod, signalPeriod);
     }
 
 }

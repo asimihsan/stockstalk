@@ -1,5 +1,8 @@
 package calculation;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import config.AppInjector;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,14 +11,15 @@ import static org.junit.Assert.*;
 /**
  * Created by ai on 4/1/15.
  */
-public class SimpleMovingAverageImplTest {
+public class SimpleMovingAverageTest {
     private static final double DELTA = 1e-2;
 
+    final Injector injector = Guice.createInjector(new AppInjector());
     private SimpleMovingAverage simpleMovingAverage;
 
     @Before
     public void setup() {
-        simpleMovingAverage = new SimpleMovingAverageImpl();
+        simpleMovingAverage = injector.getInstance(SimpleMovingAverage.class);
     }
 
     @Test
